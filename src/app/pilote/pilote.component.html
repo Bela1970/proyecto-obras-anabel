@@ -1,0 +1,33 @@
+<div *ngIf="pilote != undefined">
+  <h2>Editar Pilote {{pilote.identif | uppercase}}</h2>
+  <table>
+    <tr>
+      <th>Identif:</th>
+      <th><input #piloteIdentif placeholder="{{pilote.identif}}" /></th>
+    </tr>
+    <tr>
+      <th>Nombre de obra:</th>
+      <th><input #piloteNombreObra placeholder="{{pilote.nombreObra}}" /></th>
+    </tr>
+    <tr>
+      <th>Diametro:</th>
+      <th><input #piloteDiametro placeholder="{{pilote.diametro}}" /></th>
+    </tr>
+    <tr>
+      <th>Profundidad:</th>
+      <th><input #piloteProfundidad placeholder="{{pilote.profundidad}}" /></th>
+    </tr>
+    <tr>
+      <th>Precio del hierro:</th>
+      <th><input #pilotePrecioH placeholder="{{pilote.precioH}}" /></th>
+    </tr>
+    <tr>
+      <th>Precio del hormigón:</th>
+      <th><input #pilotePrecioHorm placeholder="{{pilote.precioHorm}}" /></th>
+    </tr>
+    <tr>
+      <th><button (click)="goBack()">Volver</button></th>
+      <th><button (click)="save(piloteNombreObra.value, piloteDiametro.value, piloteProfundidad.value, pilotePrecioH.value, pilotePrecioHorm.value)">Guardar</button>
+			</th>
+    </tr>
+  </table>

@@ -1,0 +1,70 @@
+<main>
+  <hr />
+
+  <table>
+    <caption>
+      Listado de obras
+    </caption>
+    <thead>
+      <tr>
+        <th style="text-align:center">NOMBRE</th>
+        <th style="text-align:center">LOCALIDAD</th>
+        <th style="text-align:center">PPTO</th>
+        <th style="text-align:center">ALIAS</th>
+        <th style="text-align:center">Bº/PDDAS</th>
+      </tr>
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td colspan="8">Datos de las obras</td>
+      </tr>
+    </tfoot>
+    <tr *ngFor="let obra of obras">
+      <td><a routerLink="/obra/{{obra.alias}}">{{obra.nombre}}</a></td>
+      <td>{{obra.localidad}}</td>
+      <td>{{obra.presupuesto}}</td>
+      <td>{{obra.alias}}</td>
+      <td>{{obra.resultado()}}</td>
+      <!--<td><button (click)="delete(p)">X</button></td>!-->
+    </tr>
+  </table>
+
+  <hr />
+  
+  <table class="anadir">
+    <tr>
+      <th colspan="2" style="text-align:left" class="anadir">
+        Si desea añadir una nueva obra, hagalo aquí
+      </th>
+    </tr>
+    <tr>
+      <th class="anadir" style="text-align: left">Nombre:</th>
+      <th class="anadir" style="text-align: left"><input #workNombre /></th>
+    </tr>
+    <tr>
+      <th class="anadir" style="text-align: left">Localidad:</th>
+      <th class="anadir" style="text-align: left"><input #workLocalidad /></th>
+    </tr>
+    <tr>
+      <th class="anadir" style="text-align: left">Presupuesto:</th>
+      <th class="anadir" style="text-align: left">
+        <input #workPresupuesto />
+      </th>
+    </tr>
+
+    <tr>
+      <th class="anadir" style="text-align: left">Alias:</th>
+      <th class="anadir" style="text-align: left"><input #workAlias /></th>
+    </tr>
+    <tr>
+      <th colspan="2" class="anadir" style="text-align:left">
+        <button
+          (click)="add(workNombre.value, workLocalidad.value, workPresupuesto.value, workAlias.value ); workNombre.value=''; workLocalidad.value=''; workPresupuesto.value=''; workAlias.value=''"
+        >
+          Añadir
+        </button>
+      </th>
+    </tr>
+  </table>
+</main>

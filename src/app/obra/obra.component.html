@@ -1,0 +1,96 @@
+<div *ngIf="obra != undefined">
+  <h1 style="text-align:center">{{obra.nombre}}</h1>
+
+  <table>
+    <tr>
+      <th colspan="2">Indique que datos de la obra desea editar: </th>
+    </tr>
+    <tr>
+      <th>Nombre:</th>
+      <th><input #obraNombre placeholder="{{obra.nombre}}" /></th>
+    </tr>
+    <tr>
+      <th>Localidad:</th>
+      <th><input #obraLocalidad placeholder="{{obra.localidad}}" /></th>
+    </tr>
+    <tr>
+      <th>Presupuesto:</th>
+      <th><input #obraPresupuesto placeholder="{{obra.presupuesto}}" /></th>
+    </tr>
+    <tr>
+    <!-- <th>Alias:</th>
+      <th><input #obraAlias placeholder="{{obra.alias}}" /></th>
+    </tr>!-->
+    <tr>
+      <th><button (click)="goBack()">Volver</button></th>
+      <th>
+        <button (click)="save(obraNombre.value, obraLocalidad.value, obraPresupuesto.value)">Guardar</button>
+      </th>
+    </tr>
+  </table>
+
+  <br>
+
+  <p>Marque el pilote que desee editar</p>
+
+  <table>
+    <tr>
+      <th colspan="10" style="text-align:center">LISTADO DE {{obra.nombre | uppercase}}</th>
+    </tr>
+    <tr>
+      <th style="text-align:center">Identificador del pilote</th>
+      <th style="text-align:center">Nombre obra</th>
+      <th style="text-align:center">Diametro</th>
+      <th style="text-align:center">Profundidad</th>
+      <th style="text-align:center">Precio Hierro</th>
+      <th style="text-align:center">Precio Hormigón</th>
+      <th style="text-align:center">ELIMINAR</th>
+    </tr>
+    <tr *ngFor="let p of obra.pilotes">
+      <td>{{p.identif}}</td>
+      <td><a routerLink="/pilote/{{p.identif}}">{{p.nombreObra}}</a></td>
+      <td>{{p.diametro}}</td>
+      <td>{{p.profundidad}}</td>
+      <td>{{p.precioH}}</td>
+      <td>{{p.precioHorm}}</td>
+      <td><button (click)="delete(p)">X</button></td>
+    </tr>
+  </table>
+
+  <br>
+
+  <table>
+    <tr>
+      <th colspan="3">¿Desea añadir un nuevo pilote a {{obra.nombre}}?</th>
+    </tr>
+    <tr>
+      <th class="">Identif:</th>
+      <th><input #piloteIdentif /></th>
+    </tr>
+    <tr>
+      <th class="">Nombre de la obra:</th>
+      <th><input #pilotenombreObra /></th>
+    </tr>
+    <tr>
+      <th class="">Diametro:</th>
+      <th><input #piloteDiametro /></th>
+    </tr>
+    <tr>
+      <th class="">Profundidad:</th>
+      <th><input #piloteProfundidad /></th>
+    </tr>
+    <tr>
+      <th class="">Precio del hierro:</th>
+      <th><input #pilotePrecioH /></th>
+    </tr>
+    <tr>
+      <th class="">Precio del hormigón:</th>
+      <th><input #pilotePrecioHorm /></th>
+    </tr>
+    <tr>
+      <th colspan="2"><button
+    (click)="add(piloteIdentif.value, pilotenombreObra.value, piloteDiametro.value, piloteProfundidad.value, pilotePrecioH.value, pilotePrecioHorm.value ); piloteIdentif.value=''; pilotenombreObra.value=''; piloteDiametro.value=''; piloteProfundidad.value=''; pilotePrecioH.value=''; pilotePrecioHorm.value=''"
+  >
+    Añadir
+  </button></th>
+    </tr>
