@@ -1,7 +1,9 @@
 <<<<<<< HEAD
 # AngularProyBela
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+En este proyecto he creado una aplicación que calculará los costes y resultado de distintas obras de pilotes, indicandole las dimensiones de cada uno de ellos.
+Para ello he creado distintos métodos, que calcularán en primer lugar, la cantidad de hierro y hormigón necesarios para cada uno y a continuación en otro método, 
+el coste de los materiales.
 
 ## Development server
 
